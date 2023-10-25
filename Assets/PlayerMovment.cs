@@ -1,3 +1,4 @@
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -143,7 +144,11 @@ public class PlayerMovment : MonoBehaviour
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
         }
         else if(!grounded){
-            rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
+            
+		float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
+		if (angle <= maxSlopeAngle){
+			rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
+		} 
         }
 
         //Preventing sliding on slopes (again we hate realistic physics)
@@ -222,3 +227,4 @@ public class PlayerMovment : MonoBehaviour
         return Vector3.ProjectOnPlane(moveDirection, slopeHit.normal).normalized;
     }
 }
+
