@@ -8,8 +8,8 @@ using UnityEngine.EventSystems;
 public class Potion : MonoBehaviour
 {
     //stats
-    public int speedMult;
-    public int jumpMult;
+    public int speedBoost;
+    public int jumpBoost;
     public int duration;
 
 
@@ -19,8 +19,8 @@ public class Potion : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
 
-            other.gameObject.GetComponent<PlayerMovement>().speedMult(speedMult, duration);
-            other.gameObject.GetComponent<PlayerMovement>().jumpMult(jumpMult, duration);
+            other.gameObject.GetComponent<PlayerMovement>().speedMult(speedBoost, duration);
+            other.gameObject.GetComponent<PlayerMovement>().jumpMult(jumpBoost, duration);
             Destroy (this.gameObject);
         }
     }
