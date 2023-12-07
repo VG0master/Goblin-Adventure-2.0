@@ -12,17 +12,15 @@ public class Potion : MonoBehaviour
     public int jumpMult;
     public int duration;
 
-    private var playerMovement;
 
     
     //on trigger enter, if the object is the player, add stat buffs/debuffs and destroy self
     void OnTriggerEnter(Collider other){
         if (other.gameObject.Tag == "Player")
         {
-            playerMovement = other.gameObject.GetComponent(PlayerMovement);
 
-            PlayerMovement.speedMult(speedMult, duration);
-            PlayerMovement.jumpMult(jumpMult, duration);
+            other.gameObject.GetComponent(PlayerMovement).speedMult(speedMult, duration);
+            other.gameObject.GetComponent(PlayerMovement).jumpMult(jumpMult, duration);
             Destroy (this.gameObject);
         }
     }
