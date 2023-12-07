@@ -17,8 +17,9 @@ public class Potion : MonoBehaviour
     void OnTriggerEnter(Collider other){
         if (other.gameObject.Tag == "Player")
         {
-            other.speedMult(speedMult, duration);
-            other.jumpMult(jumpMult, duration);
+            GameObject Object = other.gameObject;
+            Object.speedMult(speedMult, duration);
+            Object.jumpMult(jumpMult, duration);
             Object.Destroy(this.gameObject);
         }
     }
