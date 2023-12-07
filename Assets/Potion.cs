@@ -19,8 +19,8 @@ public class Potion : MonoBehaviour
         if (other.gameObject.Tag == "Player")
         {
 
-            other.gameObject.GetComponent(PlayerMovement).speedMult(speedMult, duration);
-            other.gameObject.GetComponent(PlayerMovement).jumpMult(jumpMult, duration);
+            other.gameObject.GetComponent<PlayerMovement>().speedMult(speedMult, duration);
+            other.gameObject.GetComponent<PlayerMovement>().jumpMult(jumpMult, duration);
             Destroy (this.gameObject);
         }
     }
