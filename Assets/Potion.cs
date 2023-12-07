@@ -14,7 +14,7 @@ public class Potion : MonoBehaviour
 
     
     //on trigger enter, if the object is the player, add stat buffs/debuffs and destroy self
-    OnTriggerEnter(Collider other){
+    void OnTriggerEnter(Collider other){
         if (other.gameObject.Tag == "Player")
         {
             other.speedMult(speedMult, duration);
