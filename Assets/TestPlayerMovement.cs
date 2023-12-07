@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class TestPlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     //Setting up all the variables that we are using, Header is just a fancy way for unity to show us what goes were.
     //All variable names should be self explanatory
