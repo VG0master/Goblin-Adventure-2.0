@@ -1,0 +1,29 @@
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.EventSystems;
+
+public class Potion : MonoBehaviour
+{
+    //stats
+    public int speedMult;
+    public int jumpMult;
+    public int duration;
+
+    private var playerMovement;
+
+    
+    //on trigger enter, if the object is the player, add stat buffs/debuffs and destroy self
+    void OnTriggerEnter(Collider other){
+        if (other.gameObject.Tag == "Player")
+        {
+            playerMovement = other.gameObject.GetComponent(PlayerMovement);
+
+            PlayerMovement.speedMult(speedMult, duration);
+            PlayerMovement.jumpMult(jumpMult, duration);
+            Destroy (this.gameObject);
+        }
+    }
+}
